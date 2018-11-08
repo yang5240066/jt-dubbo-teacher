@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>http://localhost:8080/jtIndex.html</title>
+</head>
+<body>
+	<div id="app">
+		<div v-for="item in items">
+			<span>{{item.title}}</span>
+			<span>{{item.price}}</span>
+			<span>{{item.id}}</span>
+			<br/>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/axios.min.js"></script>
+<script type="text/javascript">
+//http://ip:8090/jtIndex.html F12 console
+//el: elements 绑定根元素
+//data中的值可以用数据绑定显示在div中
+	var vue = new Vue({
+		el : "#app",
+		mounted : function(){
+			console.log("网页加载完成");
+			console.log(this)
+			var _vue = this;
+			var url = "/api/getIndexItem.html";
+			//联网成功后调then
+			//联网失败后调catch
+			axios.get(url).then(function(res){
+				console.log(res);
+				//console.log(this);	//代表window
+				var result = res.data
+				//服务器返回的结果有status,msg,data
+				_vue.items = result.data;
+			}).catch(function(e){
+				console.log(e);
+			});
+		},
+		data : {items:[{name:"手机",price:9000},
+		               {name:"电脑",price:20000}]}
+	});
+</script>
+
+</html>

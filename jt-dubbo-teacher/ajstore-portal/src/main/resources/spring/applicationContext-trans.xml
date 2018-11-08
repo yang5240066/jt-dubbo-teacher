@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xmlns namespace 配完后，有自动提示 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       		http://www.springframework.org/schema/beans/spring-beans.xsd 
+       		http://www.springframework.org/schema/context 
+       		http://www.springframework.org/schema/context/spring-context.xsd 
+			http://www.springframework.org/schema/aop        		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       		http://www.springframework.org/schema/tx 
+       		http://www.springframework.org/schema/tx/spring-tx.xsd
+       		http://www.springframework.org/schema/mvc       		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	
+	<!-- 事务配置开始 -->
+<!-- 事务管理器 -->
+<beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+<!-- 数据源 -->
+<beans:property name="dataSource" ref="jdbcDataSource"></beans:property>
+</beans:bean>
+<!-- 通知，执行那些方法（insert,delete,update）的时候，启用事务 -->
+<tx:advice id="txAdvice" transaction-manager="transactionManager">
+<tx:attributes>
+<!-- propagation 设置事务传播行为 requiered值表示，
+没有事务，就创建一个新的 -->
+<tx:method name="save*" propagation="REQUIRED"/>
+<tx:method name="delete*" propagation="REQUIRED"/>
+<tx:method name="update*" propagation="REQUIRED"/>
+</tx:attributes>
+</tx:advice>
+<!-- 事务是用aop 动态代理实现的，发现有一个操作失败了，自动把所有的操作都取消 -->
+<aop:config>
+<!--pointcut 切点  -->
+<aop:advisor advice-ref="txAdvice"
+ pointcut="execution(* com.ajiatech.service.*.*(..))"/>
+</aop:config>
+<!-- 事务配置结束 -->
+</beans>
+
+
+
+
+

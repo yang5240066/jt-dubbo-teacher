@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/vue.js">	
+</script>
+<script type="text/javascript" src="js/axios.min.js">	
+</script>
+</head>
+<body>
+	<div id="app">
+		<!-- 数据绑定 -->
+		<div v-for="item in items">
+			<a v-bind:href="item.detailUrl"> 
+			<img v-bind:src="item.image" />
+				<br /> <span>{{item.title}}</span><br /> <span>{{item.price}}</span>
+				<br />
+			<br />
+			</a>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	//创建vue对象
+	var vue = new Vue({
+		el : "#app",
+		mounted : function() {
+			//console.log(this);
+			var _vue=this;
+			//使用axios联网
+			//http://172.211.100.32/01vue.html
+			var url="/api/getIndexItem.html";
+			axios.get(url).then(function(response){
+				//console.log(this);
+				//console.log(response);
+				var ajiaResult=response.data;
+				_vue.items=ajiaResult.data;
+				//在前端拼出detailUrl
+				for (var i=0;i<_vue.items.length;i++)
+					{
+					var item=_vue.items[i];
+					var detailUrl="detail.html?id="+item.id;
+					item.detailUrl=detailUrl;
+					}
+				console.log(_vue.items);
+				
+			}).catch(function(){console.log("联网失败")});
+		},
+		data:{items:[]}
+	});
+</script>

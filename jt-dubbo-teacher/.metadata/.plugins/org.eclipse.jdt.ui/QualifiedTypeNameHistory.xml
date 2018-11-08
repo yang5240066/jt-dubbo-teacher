@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.jt.web.pojo.Cart"/>
+<fullyQualifiedTypeName name="com.jt.order.pojo.Order"/>
+<fullyQualifiedTypeName name="com.rabbitmq.client.ConnectionFactory"/>
+<fullyQualifiedTypeName name="com.rabbitmq.client.Channel"/>
+<fullyQualifiedTypeName name="java.util.UUID"/>
+<fullyQualifiedTypeName name="org.springframework.amqp.rabbit.core.RabbitTemplate"/>
+<fullyQualifiedTypeName name="org.junit.internal.Throwables"/>
+<fullyQualifiedTypeName name="org.apache.lucene.analysis.Analyzer"/>
+<fullyQualifiedTypeName name="org.wltea.analyzer.lucene.IKAnalyzer"/>
+<fullyQualifiedTypeName name="org.apache.lucene.index.IndexWriterConfig"/>
+<fullyQualifiedTypeName name="org.apache.lucene.util.Version"/>
+<fullyQualifiedTypeName name="org.apache.lucene.document.LongField"/>
+<fullyQualifiedTypeName name="org.apache.lucene.document.StringField"/>
+<fullyQualifiedTypeName name="org.apache.lucene.document.TextField"/>
+<fullyQualifiedTypeName name="org.apache.lucene.document.Field.Store"/>
+<fullyQualifiedTypeName name="org.apache.lucene.index.IndexWriter"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="org.apache.lucene.store.Directory"/>
+<fullyQualifiedTypeName name="org.apache.lucene.store.FSDirectory"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="org.apache.lucene.index.IndexReader"/>
+<fullyQualifiedTypeName name="org.apache.lucene.search.IndexSearcher"/>
+<fullyQualifiedTypeName name="javax.management.Query"/>
+<fullyQualifiedTypeName name="org.apache.lucene.search.TermQuery"/>
+<fullyQualifiedTypeName name="org.apache.lucene.index.Term"/>
+<fullyQualifiedTypeName name="org.apache.lucene.search.Query"/>
+<fullyQualifiedTypeName name="org.apache.lucene.search.ScoreDoc"/>
+<fullyQualifiedTypeName name="org.apache.lucene.document.Document"/>
+<fullyQualifiedTypeName name="org.apache.solr.client.solrj.beans.Field"/>
+<fullyQualifiedTypeName name="java.lang.Long"/>
+<fullyQualifiedTypeName name="com.sun.xml.bind.v2.schemagen.xmlschema.List"/>
+<fullyQualifiedTypeName name="org.apache.solr.client.solrj.impl.HttpSolrServer"/>
+<fullyQualifiedTypeName name="org.apache.solr.client.solrj.SolrQuery"/>
+<fullyQualifiedTypeName name="com.jt.search.pojo.Item"/>
+<fullyQualifiedTypeName name="java.awt.event.ItemListener"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.jt.search.service.SearchService"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+<fullyQualifiedTypeName name="com.jt.common.po.BasePojo"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

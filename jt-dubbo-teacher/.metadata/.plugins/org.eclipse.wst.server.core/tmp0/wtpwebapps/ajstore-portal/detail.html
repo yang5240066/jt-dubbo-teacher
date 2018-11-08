@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/axios.min.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+</head>
+<body>
+	<div id="app">
+		<a href="mobileIndex.html">返回</a> <br /> 
+		<img
+			v-bind:src="item.ajiaItem.image" /> <br />
+			 <span>{{item.ajiaItem.title}}</span>
+		<br /> <span>{{item.ajiaItem.price}}</span> <br />
+		<div v-html="item.ajiaItemDesc.itemDesc"></div>
+		
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+   var vue=new Vue({
+	   el:"#app",
+	   data:{item:null},
+	   mounted:function()
+	   {
+		   var map=getParamMap();
+		   var itemId=map.get("id");
+		   var _vue=this;
+		   var url="/api/getItemDetail.html?itemId="+itemId;
+		   axios.get(url).then(function(res){
+			   var ajiaResult=res.data;
+			   var item=ajiaResult.data;
+			   console.log(item);
+			   _vue.item=item;
+		   }).catch(function(){console.log("联网失败")});
+	   }
+   });
+</script>

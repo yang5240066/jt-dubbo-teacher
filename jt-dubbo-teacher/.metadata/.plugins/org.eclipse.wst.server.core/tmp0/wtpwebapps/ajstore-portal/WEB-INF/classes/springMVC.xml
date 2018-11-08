@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xmlns namespace 配完后，有自动提示 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       		http://www.springframework.org/schema/beans/spring-beans.xsd 
+       		http://www.springframework.org/schema/context 
+       		http://www.springframework.org/schema/context/spring-context.xsd 
+			http://www.springframework.org/schema/aop        		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       		http://www.springframework.org/schema/tx 
+       		http://www.springframework.org/schema/tx/spring-tx.xsd
+       		http://www.springframework.org/schema/mvc       		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- 加载src/main/resources/properties下面的所有properties文件 -->
+	<context:property-placeholder location="classpath:properties/*.properties" />
+	<!-- 组件扫描 -->
+	<context:component-scan base-package="com.ajiatech.controller">
+	</context:component-scan>
+	<!-- requestmapping加了produces在有些电脑上没生效 -->
+	<!--annotation-driven 设置通过requestMapping注解来运行方法 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<beans:bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<beans:property name="supportedMediaTypes">
+					<beans:list>
+						<beans:value>text/html;charset=UTF-8</beans:value>
+						<beans:value>application/json;charset=UTF-8</beans:value>
+					</beans:list>
+				</beans:property>
+			</beans:bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- 配置前缀和后缀，在转发时，框架会自动加上前缀和后缀 -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/jsp/">
+		</beans:property>
+		<beans:property name="suffix" value=".jsp">
+		</beans:property>
+	</beans:bean>
+	<!-- webapp/show2.html不能访问 ,配置后就能访问了 -->
+	<mvc:default-servlet-handler />
+	<!-- 全局异常处理 -->
+	<beans:bean class="com.ajiatech.exception.AjStoreException">
+	</beans:bean>
+	<!-- 配置interceptor -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/cart/*" />
+			<mvc:mapping path="/order/*" />
+			<mvc:mapping path="/address/*" />
+			<beans:bean class="com.ajiatech.controller.CheckLoginInterceptor"></beans:bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+</beans>
+
+
+
+
+

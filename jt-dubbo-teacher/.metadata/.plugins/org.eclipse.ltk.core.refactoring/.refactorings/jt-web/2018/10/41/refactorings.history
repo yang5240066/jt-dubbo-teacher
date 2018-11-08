@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract local variable &apos;findItemByKey&apos; from expression &apos;searchService.findItemByKey(key)&apos;&#x0D;&#x0A;- Original project: &apos;jt-web&apos;&#x0D;&#x0A;- Variable name: &apos;findItemByKey&apos;&#x0D;&#x0A;- Destination method: &apos;com.jt.web.controller.SearchController.search()&apos;&#x0D;&#x0A;- Variable expression: &apos;searchService.findItemByKey(key)&apos;&#x0D;&#x0A;- Replace occurrences of expression with variable" description="Extract local variable &apos;findItemByKey&apos;" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src\/main\/java&lt;com.jt.web.controller{SearchController.java" name="findItemByKey" replace="true" selection="725 0" stamp="1538984591737" version="1.0"/>
+</session>

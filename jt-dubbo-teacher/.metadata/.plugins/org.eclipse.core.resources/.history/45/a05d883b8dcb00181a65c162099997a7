@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="app">
+	</div>
+</body>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+//http://ip:8090/jtIndex.html F12 console
+//el: elements 绑定根元素
+	var vue = new Vue({
+		el : "#app",
+		mounted : function(){
+			console.log("网页加载完成");
+		}
+	});
+</script>
+
+</html>

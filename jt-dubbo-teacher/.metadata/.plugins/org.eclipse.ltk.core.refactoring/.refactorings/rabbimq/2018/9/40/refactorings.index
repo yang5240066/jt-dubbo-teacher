@@ -1,0 +1,31 @@
+1538274437380	Delete element
+1538274480147	Delete element
+1538274481480	Copy compilation unit
+1538274522549	Delete element
+1538274572910	Extract local variable 'factory'
+1538274679093	Extract local variable 'connection'
+1538276051882	Copy compilation unit
+1538276319863	Extract local variable 'consumer'
+1538276466533	Extract local variable 'delivery'
+1538276476317	Extract local variable 'data'
+1538276490320	Extract local variable 'string'
+1538277828039	Copy compilation unit
+1538277840617	Copy compilation unit
+1538277865272	Rename type 'Test_1_simple_consumer'
+1538277874696	Rename type 'Test_1_simple_provider'
+1538277905377	Rename type 'Test_1_simple_consumer1'
+1538277909614	Rename type 'Test_1_simple_provider2'
+1538277930855	Copy compilation unit
+1538277953576	Rename type 'Test_2_work_provider2'
+1538278626885	Copy compilation unit
+1538279014645	Copy compilation unit
+1538279430070	Copy compilation unit
+1538287962138	Copy compilation unit
+1538288150667	Copy compilation unit
+1538288164980	Rename type 'Test_4_publish_consumer1'
+1538288201085	Delete element
+1538288226160	Copy compilation unit
+1538288279622	Copy compilation unit
+1538289944539	Copy compilation unit
+1538289966910	Copy compilation unit
+1538290091713	Copy compilation unit

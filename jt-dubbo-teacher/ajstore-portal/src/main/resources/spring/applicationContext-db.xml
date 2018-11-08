@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xmlns namespace 配完后，有自动提示 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       		http://www.springframework.org/schema/beans/spring-beans.xsd 
+       		http://www.springframework.org/schema/context 
+       		http://www.springframework.org/schema/context/spring-context.xsd 
+			http://www.springframework.org/schema/aop        		http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       		http://www.springframework.org/schema/tx 
+       		http://www.springframework.org/schema/tx/spring-tx.xsd
+       		http://www.springframework.org/schema/mvc       		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- 加载src/main/resources/properties下所有properties文件 -->
+	<!-- 数据库配置开始 -->
+	<context:property-placeholder 
+	location="classpath:properties/*.properties"/>
+	<!-- 1,配置数据库连接 -->
+	<beans:bean id="jdbcDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="username" value="${jdbc.username}">
+		</beans:property>
+		<beans:property name="password" value="${jdbc.password}">
+		</beans:property>
+		<beans:property name="url"
+			value="${jdbc.url}">
+		</beans:property>
+		<beans:property name="driverClassName" value="${jdbc.driver}">
+		</beans:property>
+	</beans:bean>
+	<!-- 2,注册sqlsessionFactory -->
+	<beans:bean 
+	id="sqlSessionFactoryBean"
+	class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!-- 2.1 配置连接 -->
+	<beans:property name="dataSource" ref="jdbcDataSource">
+	</beans:property>
+	<!-- 2.2 配置mapper.xml的位置 -->
+	<beans:property name="mapperLocations"
+	value="classpath:com/ajiatech/mapper/*.xml"
+	></beans:property>
+	<!-- 加载分页配置 -->
+	<beans:property name="configLocation" 
+	value="classpath:mybatis/page.xml">
+	</beans:property>
+	</beans:bean>
+	<!-- 3,扫描com.ajiatech.mapper下的所有操作数据库的接口 -->
+	<beans:bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<beans:property name="basePackage" value="com.ajiatech.mapper"></beans:property>
+	</beans:bean>
+	<!-- 数据库配置结束 -->
+	
+	
+</beans>
+
+
+
+
+
